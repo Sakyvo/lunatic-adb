@@ -1,0 +1,85 @@
+name: rebuild
+
+on:
+  schedule:
+    # UTC 01:00 / 13:00 = 北京时间 09:00 / 21:00
+    - cron: "0 1,13 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "sources.json"
+      - "build.py"
+      - ".github/workflows/rebuild.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild-main
+  cancel-in-progress: true
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Unit tests
+        run: python3 -m unittest test_build
+
+      - name: Build artifacts
+        run: |
+          set -o pipefail
+          python3 build.py 2>&1 | tee build.log
+
+      - name: Job summary
+        if: always()
+        run: |
+          if grep -q '\[skip:' build.log; then
+            {
+              echo "## Skipped upstreams"
+              echo '```'
+              grep '\[skip:' build.log
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "All upstreams fetched." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit if content changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          content_changed() {
+            local f=$1
+            git cat-file -e "HEAD:$f" 2>/dev/null || return 0
+            ! diff -q <(git show "HEAD:$f" | grep -v '^! Version:') \
+                      <(grep -v '^! Version:' "$f") >/dev/null
+          }
+
+          changed=0
+          for f in lunatic-adb.txt lunatic-adb-lite.txt; do
+            if content_changed "$f"; then changed=1; fi
+          done
+
+          if [ "$changed" -eq 0 ]; then
+            echo "Rule content unchanged; skipping commit."
+            exit 0
+          fi
+
+          skips=$(grep -o '\[skip: [^]]*\]' build.log | sed 's|https\?://[^ ]*/||' | sed 's/^\[skip: /[skip: /' || true)
+          msg="chore: rebuild $(date -u -d '+8 hours' '+%Y-%m-%d %H:%M:%S')"
+          if [ -n "$skips" ]; then
+            msg="$msg"$'\n'"$skips"
+          fi
+
+          git add lunatic-adb.txt lunatic-adb-lite.txt
+          git commit -m "$msg"
+          git push
