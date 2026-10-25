@@ -1,0 +1,217 @@
+# -*- coding: utf-8 -*-
+"""build.py 的行为规格测试。所有测试离线：文本夹具注入，无网络。"""
+import io
+import json
+import os
+import tempfile
+import unittest
+
+from build import collect_edition, parse_upstream, render_ruleset, run
+
+
+CATEGORY_ORDER = ["主要", "特供", "广告横幅", "隐私", "水印", "登录信息", "Cookie", "防误杀白名单"]
+
+
+class RenderRulesetTests(unittest.TestCase):
+    """分类规则行 -> 完整产物文本：头部字段、段落结构、去重、字节序排序。"""
+
+    def render(self, lines_by_category, title="lunatic-adb", version="2026-10-25 06:16:17", categories=None):
+        return render_ruleset(title, version, categories or CATEGORY_ORDER, lines_by_category)
+
+    def test_full_artifact_shape(self):
+        text = self.render(
+            {"主要": ["||a.com^", "##.ad"], "防误杀白名单": ["@@||c.com^"]},
+            categories=["主要", "防误杀白名单"],
+        )
+        self.assertEqual(
+            text,
+            "[Adblock Plus 2.0]\n"
+            "! Title: lunatic-adb\n"
+            "! Version: 2026-10-25 06:16:17\n"
+            "! Total count: 3\n"
+            "! Description: 自用\n"
+            "! Repository: https://github.com/Sakyvo/lunatic-adb\n"
+            "! Expires: 12 hours\n"
+            "\n"
+            "! >>>>>> 主要 · 2 <<<<<<\n"
+            "##.ad\n"
+            "||a.com^\n"
+            "! >>>>>> 主要 结束 <<<<<<\n"
+            "\n"
+            "! >>>>>> 防误杀白名单 · 1 <<<<<<\n"
+            "@@||c.com^\n"
+            "! >>>>>> 防误杀白名单 结束 <<<<<<\n",
+        )
+
+    def test_duplicate_line_kept_once_in_earlier_category(self):
+        text = self.render({"主要": ["||dup.com^"], "隐私": ["||dup.com^", "||p.com^"]})
+        self.assertEqual(text.count("||dup.com^"), 1)
+        self.assertIn("! >>>>>> 隐私 · 1 <<<<<<", text)
+        self.assertEqual(text.count("! Total count: 2"), 1)
+
+    def test_lines_sorted_by_utf8_byte_order(self):
+        text = self.render({"主要": ["z.com^", "||pipe.com^", "1digit.com^"]})
+        body = text.split("! >>>>>> 主要 · 3 <<<<<<\n", 1)[1]
+        self.assertEqual(
+            body.split("\n")[:3], ["1digit.com^", "z.com^", "||pipe.com^"]
+        )
+
+    def test_empty_category_still_emits_section(self):
+        text = self.render({"主要": []})
+        self.assertIn("! >>>>>> 主要 · 0 <<<<<<\n! >>>>>> 主要 结束 <<<<<<", text)
+        self.assertIn("! Total count: 0", text)
+
+
+class CollectEditionTests(unittest.TestCase):
+    """配置 + 已拉取文本 -> 某一版的分类行字典（通用源两版共享，特供源按版归属）。"""
+
+    CONFIG = {
+        "categories": CATEGORY_ORDER,
+        "sources": [
+            {"url": "u1", "category": "主要", "editions": ["origin", "lite"]},
+            {"url": "u2", "category": "特供", "editions": ["origin"]},
+        ],
+    }
+
+    def test_generic_source_reaches_both_editions(self):
+        texts = {"u1": "||g.com^"}
+        for edition in ("origin", "lite"):
+            self.assertEqual(collect_edition(self.CONFIG, edition, texts), {"主要": ["||g.com^"]})
+
+    def test_exclusive_source_only_in_its_edition(self):
+        texts = {"u1": "||g.com^", "u2": "||o.com^"}
+        self.assertEqual(
+            collect_edition(self.CONFIG, "origin", texts),
+            {"主要": ["||g.com^"], "特供": ["||o.com^"]},
+        )
+        self.assertEqual(collect_edition(self.CONFIG, "lite", texts), {"主要": ["||g.com^"]})
+
+
+class RunEndToEndTests(unittest.TestCase):
+    """端到端：配置 + 注入 transport -> 双产物落盘；失败源跳过并报告。"""
+
+    CONFIG = {
+        "categories": CATEGORY_ORDER,
+        "sources": [
+            {"url": "u-generic", "category": "主要", "editions": ["origin", "lite"]},
+            {"url": "u-origin-only", "category": "特供", "editions": ["origin"]},
+        ],
+    }
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.sources_path = os.path.join(self.tmp.name, "sources.json")
+        with open(self.sources_path, "w", encoding="utf-8") as f:
+            json.dump(self.CONFIG, f, ensure_ascii=False)
+
+    def run_build(self, transport):
+        out = io.StringIO()
+        code = run(self.sources_path, self.tmp.name, transport, "2026-10-25 06:16:17", out,
+                   retry_attempts=1, retry_delay=0)
+        return code, out.getvalue()
+
+    def artifact(self, name):
+        with open(os.path.join(self.tmp.name, name), encoding="utf-8") as f:
+            return f.read()
+
+    def test_both_artifacts_written_with_edition_scoped_sources(self):
+        texts = {"u-generic": "||g.com^\n! noise\n", "u-origin-only": "||o.com^"}
+        code, _ = self.run_build(lambda url: texts[url])
+        self.assertEqual(code, 0)
+        origin, lite = self.artifact("lunatic-adb.txt"), self.artifact("lunatic-adb-lite.txt")
+        self.assertIn("! Title: lunatic-adb\n", origin)
+        self.assertIn("||o.com^\n", origin)
+        self.assertIn("! Title: lunatic-adb-lite\n", lite)
+        self.assertNotIn("||o.com^", lite)
+        self.assertIn("||g.com^", lite)
+
+    def test_artifacts_use_lf_line_endings(self):
+        self.run_build(lambda url: {"u-generic": "||g.com^", "u-origin-only": ""}[url])
+        self.assertNotIn("\r", self.artifact("lunatic-adb.txt"))
+
+    def test_failed_source_is_skipped_with_report(self):
+        def transport(url):
+            if url == "u-origin-only":
+                raise OSError("connection refused")
+            return "||g.com^"
+
+        code, report = self.run_build(transport)
+        self.assertEqual(code, 0)
+        self.assertIn("[skip: u-origin-only]", report)
+        self.assertIn("||g.com^", self.artifact("lunatic-adb.txt"))
+        self.assertIn("! >>>>>> 特供 · 0 <<<<<<", self.artifact("lunatic-adb.txt"))
+
+    def test_all_sources_failed_aborts_without_writing(self):
+        code, _ = self.run_build(self.fail_all)
+        self.assertEqual(code, 1)
+        self.assertFalse(os.path.exists(os.path.join(self.tmp.name, "lunatic-adb.txt")))
+
+    def fail_all(self, url):
+        raise OSError("down")
+
+    def run_build_with_retries(self, transport, attempts, delay):
+        out = io.StringIO()
+        code = run(self.sources_path, self.tmp.name, transport, "2026-10-25 06:16:17", out,
+                   retry_attempts=attempts, retry_delay=delay)
+        return code, out.getvalue()
+
+    def test_transient_failure_is_retried_before_skip(self):
+        calls = {"u-generic": 0}
+
+        def flaky(url):
+            if url == "u-generic":
+                calls["u-generic"] += 1
+                if calls["u-generic"] == 1:
+                    raise OSError("transient tls eof")
+            return {"u-generic": "||g.com^", "u-origin-only": "||o.com^"}[url]
+
+        code, report = self.run_build_with_retries(flaky, attempts=2, delay=0)
+        self.assertEqual(code, 0)
+        self.assertEqual(calls["u-generic"], 2)
+        self.assertNotIn("[skip:", report)
+        self.assertIn("||g.com^", self.artifact("lunatic-adb.txt"))
+
+    def test_retries_exhausted_falls_back_to_skip(self):
+        calls = {"u-generic": 0}
+
+        def always_down(url):
+            calls[url] = calls.get(url, 0) + 1
+            raise OSError("down")
+
+        code, report = self.run_build_with_retries(always_down, attempts=2, delay=0)
+        self.assertEqual(code, 1)
+        self.assertEqual(calls["u-generic"], 3)
+        self.assertIn("[skip: u-generic]", report)
+
+
+class ParseUpstreamTests(unittest.TestCase):
+    """上游文件文本 -> 规则行：丢弃头部声明、! 注释与空行，保留规则行。"""
+
+    def test_header_comments_and_blanks_are_dropped(self):
+        text = (
+            "[Adblock Plus 2.0]\n"
+            "! Title: some upstream\n"
+            "! Version: 20200101\n"
+            "\n"
+            "||example.com^\n"
+            "\n"
+            "! section comment\n"
+            "##.ad-banner\n"
+        )
+        self.assertEqual(parse_upstream(text), ["||example.com^", "##.ad-banner"])
+
+    def test_crlf_and_bom_are_normalised(self):
+        text = "\ufeff[Adblock Plus 2.0]\r\n! Title: x\r\n||a.com^\r\n"
+        self.assertEqual(parse_upstream(text), ["||a.com^"])
+
+    def test_allowlist_lines_are_kept(self):
+        text = "[Adblock Plus 2.0]\n@@||good.com^\n"
+        self.assertEqual(parse_upstream(text), ["@@||good.com^"])
+
+    def test_empty_text_yields_no_lines(self):
+        self.assertEqual(parse_upstream(""), [])
+
+
+if __name__ == "__main__":
+    unittest.main()
