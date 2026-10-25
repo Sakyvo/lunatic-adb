@@ -1,78 +1,82 @@
 {
   "categories": [
-    "主要",
-    "特供",
-    "广告横幅",
-    "隐私",
-    "水印",
-    "登录信息",
-    "Cookie",
-    "防误杀白名单"
+    "main",
+    "meta",
+    "privacy",
+    "watermark",
+    "login",
+    "cookie",
+    "whitelist"
   ],
   "sources": [
     {
       "url": "https://raw.githubusercontent.com/damengzhu/abpmerge/refs/heads/main/abpmerge.txt",
-      "category": "主要",
+      "category": "main",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://raw.githubusercontent.com/jk278/Ad-J/main/Ad-J.txt",
-      "category": "主要",
+      "category": "main",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/refs/heads/master/mv.txt",
-      "category": "主要",
+      "category": "main",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://raw.githubusercontent.com/lingeringsound/adblock_auto/main/Rules/adblock_auto.txt",
-      "category": "特供",
+      "category": "main",
       "editions": ["origin"]
     },
     {
       "url": "https://raw.githubusercontent.com/lingeringsound/adblock_auto/main/Rules/adblock_auto_lite.txt",
-      "category": "特供",
+      "category": "main",
       "editions": ["lite"]
     },
     {
+      "url": "https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7c9df87/raw/976e686edb2e6d6ab9f17a381f07f625ce1141db/BYD%25E5%25B9%25BF%25E5%2591%258A.txt",
+      "category": "main",
+      "editions": ["origin", "lite"]
+    },
+    {
       "url": "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/jiekouAD.txt",
-      "category": "广告横幅",
+      "category": "meta",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://raw.githubusercontent.com/sbwml/halflife-list/refs/heads/master/ad-edentw.txt",
-      "category": "广告横幅",
+      "category": "meta",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://easylist-downloads.adblockplus.org/easyprivacy.txt",
-      "category": "隐私",
+      "category": "privacy",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://cdn.jsdelivr.net/gh/runningcheese/RunningCheese-Firefox/Restore/Adblock_Watermark.txt",
-      "category": "水印",
+      "category": "watermark",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt",
-      "category": "登录信息",
+      "category": "login",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://cdn.jsdelivr.net/gh/Noyllopa/NoAppDownload@master/NoAppDownload.txt",
-      "category": "登录信息",
+      "category": "login",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://www.i-dont-care-about-cookies.eu/abp/",
-      "category": "Cookie",
+      "category": "cookie",
       "editions": ["origin", "lite"]
     },
     {
       "url": "https://raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/allow.txt",
-      "category": "防误杀白名单",
+      "category": "whitelist",
       "editions": ["origin", "lite"]
     }
   ]

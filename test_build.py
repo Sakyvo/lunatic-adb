@@ -6,10 +6,49 @@ import os
 import tempfile
 import unittest
 
-from build import collect_edition, parse_upstream, render_ruleset, run
+from build import CATEGORIES, collect_edition, parse_upstream, render_ruleset, run
 
 
-CATEGORY_ORDER = ["主要", "特供", "广告横幅", "隐私", "水印", "登录信息", "Cookie", "防误杀白名单"]
+CATEGORY_ORDER = ["main", "meta", "privacy", "watermark", "login", "cookie", "whitelist"]
+
+BYD_URL = ("https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7c9df87/raw/"
+           "976e686edb2e6d6ab9f17a381f07f625ce1141db/BYD%25E5%25B9%25BF%25E5%2591%258A.txt")
+
+
+class ShippedDefaultsTests(unittest.TestCase):
+    """随仓库交付的默认值规格：模块类别常量与 sources.json 完整性。"""
+
+    def test_module_categories_match_seven_section_english_spec(self):
+        self.assertEqual(CATEGORIES, CATEGORY_ORDER)
+
+    def setUp_sources(self):
+        root = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(root, "sources.json"), encoding="utf-8") as f:
+            return json.load(f)
+
+    def test_sources_json_categories_are_english_seven_sections(self):
+        config = self.setUp_sources()
+        self.assertEqual(config["categories"], CATEGORY_ORDER)
+
+    def test_sources_json_has_byd_and_main_tagged_lingeringsound(self):
+        config = self.setUp_sources()
+        by_source = {}
+        for source in config["sources"]:
+            by_source.setdefault(source["url"], source)
+            self.assertIn(source["category"], config["categories"])
+            self.assertTrue(source["editions"])
+            self.assertTrue(set(source["editions"]) <= {"origin", "lite"})
+
+        self.assertEqual(len(config["sources"]), 14)
+
+        self.assertEqual(by_source[BYD_URL]["category"], "main")
+        self.assertEqual(set(by_source[BYD_URL]["editions"]), {"origin", "lite"})
+
+        for suffix, edition in (("adblock_auto.txt", "origin"), ("adblock_auto_lite.txt", "lite")):
+            match = [s for url, s in by_source.items() if url.endswith(suffix)]
+            self.assertEqual(len(match), 1, suffix)
+            self.assertEqual(match[0]["category"], "main")
+            self.assertEqual(match[0]["editions"], [edition])
 
 
 class RenderRulesetTests(unittest.TestCase):
@@ -20,8 +59,8 @@ class RenderRulesetTests(unittest.TestCase):
 
     def test_full_artifact_shape(self):
         text = self.render(
-            {"主要": ["||a.com^", "##.ad"], "防误杀白名单": ["@@||c.com^"]},
-            categories=["主要", "防误杀白名单"],
+            {"main": ["||a.com^", "##.ad"], "whitelist": ["@@||c.com^"]},
+            categories=["main", "whitelist"],
         )
         self.assertEqual(
             text,
@@ -33,58 +72,58 @@ class RenderRulesetTests(unittest.TestCase):
             "! Repository: https://github.com/Sakyvo/lunatic-adb\n"
             "! Expires: 12 hours\n"
             "\n"
-            "! >>>>>> 主要 · 2 <<<<<<\n"
+            "! >>>>>> main · 2 <<<<<<\n"
             "##.ad\n"
             "||a.com^\n"
-            "! >>>>>> 主要 结束 <<<<<<\n"
+            "! >>>>>> main 结束 <<<<<<\n"
             "\n"
-            "! >>>>>> 防误杀白名单 · 1 <<<<<<\n"
+            "! >>>>>> whitelist · 1 <<<<<<\n"
             "@@||c.com^\n"
-            "! >>>>>> 防误杀白名单 结束 <<<<<<\n",
+            "! >>>>>> whitelist 结束 <<<<<<\n",
         )
 
     def test_duplicate_line_kept_once_in_earlier_category(self):
-        text = self.render({"主要": ["||dup.com^"], "隐私": ["||dup.com^", "||p.com^"]})
+        text = self.render({"main": ["||dup.com^"], "privacy": ["||dup.com^", "||p.com^"]})
         self.assertEqual(text.count("||dup.com^"), 1)
-        self.assertIn("! >>>>>> 隐私 · 1 <<<<<<", text)
+        self.assertIn("! >>>>>> privacy · 1 <<<<<<", text)
         self.assertEqual(text.count("! Total count: 2"), 1)
 
     def test_lines_sorted_by_utf8_byte_order(self):
-        text = self.render({"主要": ["z.com^", "||pipe.com^", "1digit.com^"]})
-        body = text.split("! >>>>>> 主要 · 3 <<<<<<\n", 1)[1]
+        text = self.render({"main": ["z.com^", "||pipe.com^", "1digit.com^"]})
+        body = text.split("! >>>>>> main · 3 <<<<<<\n", 1)[1]
         self.assertEqual(
             body.split("\n")[:3], ["1digit.com^", "z.com^", "||pipe.com^"]
         )
 
     def test_empty_category_still_emits_section(self):
-        text = self.render({"主要": []})
-        self.assertIn("! >>>>>> 主要 · 0 <<<<<<\n! >>>>>> 主要 结束 <<<<<<", text)
+        text = self.render({"main": []})
+        self.assertIn("! >>>>>> main · 0 <<<<<<\n! >>>>>> main 结束 <<<<<<", text)
         self.assertIn("! Total count: 0", text)
 
 
 class CollectEditionTests(unittest.TestCase):
-    """配置 + 已拉取文本 -> 某一版的分类行字典（通用源两版共享，特供源按版归属）。"""
+    """配置 + 已拉取文本 -> 某一版的分类行字典（通用源两版共享，特供源按版归属同类别）。"""
 
     CONFIG = {
         "categories": CATEGORY_ORDER,
         "sources": [
-            {"url": "u1", "category": "主要", "editions": ["origin", "lite"]},
-            {"url": "u2", "category": "特供", "editions": ["origin"]},
+            {"url": "u1", "category": "main", "editions": ["origin", "lite"]},
+            {"url": "u2", "category": "main", "editions": ["origin"]},
         ],
     }
 
     def test_generic_source_reaches_both_editions(self):
         texts = {"u1": "||g.com^"}
         for edition in ("origin", "lite"):
-            self.assertEqual(collect_edition(self.CONFIG, edition, texts), {"主要": ["||g.com^"]})
+            self.assertEqual(collect_edition(self.CONFIG, edition, texts), {"main": ["||g.com^"]})
 
     def test_exclusive_source_only_in_its_edition(self):
         texts = {"u1": "||g.com^", "u2": "||o.com^"}
         self.assertEqual(
             collect_edition(self.CONFIG, "origin", texts),
-            {"主要": ["||g.com^"], "特供": ["||o.com^"]},
+            {"main": ["||g.com^", "||o.com^"]},
         )
-        self.assertEqual(collect_edition(self.CONFIG, "lite", texts), {"主要": ["||g.com^"]})
+        self.assertEqual(collect_edition(self.CONFIG, "lite", texts), {"main": ["||g.com^"]})
 
 
 class RunEndToEndTests(unittest.TestCase):
@@ -93,8 +132,8 @@ class RunEndToEndTests(unittest.TestCase):
     CONFIG = {
         "categories": CATEGORY_ORDER,
         "sources": [
-            {"url": "u-generic", "category": "主要", "editions": ["origin", "lite"]},
-            {"url": "u-origin-only", "category": "特供", "editions": ["origin"]},
+            {"url": "u-generic", "category": "main", "editions": ["origin", "lite"]},
+            {"url": "u-origin-only", "category": "main", "editions": ["origin"]},
         ],
     }
 
@@ -122,6 +161,7 @@ class RunEndToEndTests(unittest.TestCase):
         origin, lite = self.artifact("lunatic-adb.txt"), self.artifact("lunatic-adb-lite.txt")
         self.assertIn("! Title: lunatic-adb\n", origin)
         self.assertIn("||o.com^\n", origin)
+        self.assertIn("! >>>>>> main · 2 <<<<<<", origin)
         self.assertIn("! Title: lunatic-adb-lite\n", lite)
         self.assertNotIn("||o.com^", lite)
         self.assertIn("||g.com^", lite)
@@ -140,7 +180,7 @@ class RunEndToEndTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertIn("[skip: u-origin-only]", report)
         self.assertIn("||g.com^", self.artifact("lunatic-adb.txt"))
-        self.assertIn("! >>>>>> 特供 · 0 <<<<<<", self.artifact("lunatic-adb.txt"))
+        self.assertIn("! >>>>>> main · 1 <<<<<<", self.artifact("lunatic-adb.txt"))
 
     def test_all_sources_failed_aborts_without_writing(self):
         code, _ = self.run_build(self.fail_all)

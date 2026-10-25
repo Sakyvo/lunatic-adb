@@ -9,7 +9,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 FETCH_TIMEOUT = 60
-CATEGORIES = ["主要", "特供", "广告横幅", "隐私", "水印", "登录信息", "Cookie", "防误杀白名单"]
+CATEGORIES = ["main", "meta", "privacy", "watermark", "login", "cookie", "whitelist"]
 EDITIONS = (
     ("origin", "lunatic-adb.txt", "lunatic-adb"),
     ("lite", "lunatic-adb-lite.txt", "lunatic-adb-lite"),
