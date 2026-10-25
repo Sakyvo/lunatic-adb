@@ -1,0 +1,11 @@
+# dev docs stay local (never committed without explicit user allowance)
+.docs/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# os
+Thumbs.db
+.DS_Store
