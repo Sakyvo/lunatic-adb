@@ -1,12 +1,12 @@
 [Adblock Plus 2.0]
 ! Title: lunatic-adb
-! Version: 2026-10-26 13:43:21
-! Total count: 362649
+! Version: 2026-10-27 03:00:02
+! Total count: 362769
 ! Description: 自用
 ! Repository: https://github.com/Sakyvo/lunatic-adb
 ! Expires: 12 hours
 
-! >>>>>> main · 291076 <<<<<<
+! >>>>>> main · 291194 <<<<<<
 ###AC_ad
 ###AD_160
 ###AD_300
@@ -60394,6 +60394,7 @@ memedroid.com##.empower-ad
 memedroid.com##div[id^="freestar-ad-"]
 memes.tw##.nice-box
 memexie.com##div[style^="width:9"][style$="#C8E4F0"]
+memo.wiki##div[style="width:300px; height:250px; "]
 memoryhackers.org##+js(set-constant, google_jobrunner, {})
 memurlar.net##.widget-320x100
 memurlar.net##.widget-sticky-mobil
@@ -79773,6 +79774,7 @@ zzzyk.com###Tinfo
 ||0lai5bvkg.com^
 ||0m483y7.cn^
 ||0mkeb9vth.com^
+||0nh9bt6v6a.com^
 ||0ns32h.com^
 ||0nyzdw2maq.com^
 ||0o0.ooo/2017/01/13/58787d42bbad6.jpg
@@ -82058,6 +82060,7 @@ zzzyk.com###Tinfo
 ||3fabf0ce4f.com^
 ||3fcu1sqox2.com^
 ||3fyrbmnccxz2zfh9p5bl75y94uu.cfd^
+||3fz4hifewy.ozuml5jk9nnvenhmunf3rg4.cfd^
 ||3g.cn/baidualading/
 ||3g.cn/index.php?s=Index/adv&
 ||3g.qq.com/lview?
@@ -82091,6 +82094,7 @@ zzzyk.com###Tinfo
 ||3j4vjpx7k.com^
 ||3j8c56p9.de^
 ||3jia5.com^$third-party
+||3jkb97w0tp.com^
 ||3k2frl8r79.com^
 ||3k8.com/d/js/m/thea
 ||3kans.*/biquge_m/js/tools.js
@@ -87274,6 +87278,7 @@ zzzyk.com###Tinfo
 ||academywristadroit.com^
 ||acam-2.com^
 ||acam-2.com^$popup
+||acarianunupset.cyou^
 ||acaribleep.com^
 ||acaridtutrice.qpon^
 ||acb.vn-c.xyz^
@@ -92241,6 +92246,7 @@ zzzyk.com###Tinfo
 ||ahqoqgffak.in^
 ||ahqwswioi.com^
 ||ahrrxaidcghsb.site^
+||ahsaidybcvpbc.website^
 ||ahsak.so-avant-garde.com^
 ||ahscdn.com^
 ||ahscdn.com^$popup
@@ -92653,6 +92659,7 @@ zzzyk.com###Tinfo
 ||ajxx98.online^
 ||ajxx98.online^$popup
 ||ajxyjzwhhcznj.space^
+||ajxzagdszztbv.website^
 ||ajymcnmtnmqwq.website^
 ||ajzdgaiikefwv.website^
 ||ajzsa.xyz^
@@ -93839,7 +93846,6 @@ zzzyk.com###Tinfo
 ||amusersracket.shop^
 ||amuseulteriorpair.com^
 ||amusgjaczncmg.site^
-||amusing-injury.com^
 ||amusing-injury.com^$document
 ||amusingarmorycomment.com^
 ||amusingbase.com^
@@ -100385,7 +100391,6 @@ zzzyk.com###Tinfo
 ||avocams.com^
 ||avocams.com^$popup
 ||avoda-mehabait.co.il^
-||avogex.com^
 ||avogex.com^$document
 ||avouchuramil.com^
 ||avourchandu.cyou^
@@ -102237,6 +102242,7 @@ zzzyk.com###Tinfo
 ||bc2268747f.com^
 ||bc3x4o7ltoy9uvq26i4tuvxw.rest^
 ||bc48fa9adc.com^
+||bc4zqavx5d.com^
 ||bc6dc48b743dc5d01.clicknplay.to^
 ||bcaadnibyntzm.space^
 ||bcaafgjmivr.in^
@@ -103306,6 +103312,7 @@ zzzyk.com###Tinfo
 ||bevwcymvettup.space^
 ||bewailindigestionunhappy.com^
 ||bewaredsainte.cyou^
+||bewashgloater.qpon^
 ||bewhidare.com^
 ||bewilderedbattle.com^
 ||bewilderedblade.com^
@@ -105435,6 +105442,7 @@ zzzyk.com###Tinfo
 ||booking.com^$domain=honglingjin.co.uk|sunnylife.tw
 ||bookingdragon.com^$subdocument,third-party
 ||bookings.nybarbershopgardena.com^
+||bookingville.cyou^
 ||bookletfodda.com^
 ||bookmakers.click^
 ||bookmakers.click^$popup
@@ -106498,6 +106506,7 @@ zzzyk.com###Tinfo
 ||btigqcwhcefhq.site^
 ||btime.com/api/weblog?
 ||btioqcomkck.in^
+||btjbuvouevfio.site^
 ||btjcjbqpmjzhk.website^
 ||btjowidqgnver.com^
 ||btkat.com/style/l.js
@@ -106865,6 +106874,7 @@ zzzyk.com###Tinfo
 ||burlytonight.pro^
 ||burlywhistle.com^
 ||burnbubble.com^
+||burnetsfigures.com^
 ||burnieachango.qpon^
 ||burniecrepes.com^
 ||burningclock.com^
@@ -110866,6 +110876,7 @@ zzzyk.com###Tinfo
 ||charlotte-content.cresa.com^
 ||charlottemice.com^
 ||charmedstipel.cfd^
+||charmedwater.com^
 ||charmingplate.com^
 ||charmingpoliteinjunction.com^
 ||charrassnags.cfd^
@@ -111118,6 +111129,7 @@ zzzyk.com###Tinfo
 ||chilihandshakewing.com^
 ||chilimonoxidesalary.com^
 ||chilionchaft.cyou^
+||chilkatsievy.cyou^
 ||chillimagepublisher.com^
 ||chillingtofu.com^
 ||chillydiscovered.com^
@@ -113448,6 +113460,7 @@ zzzyk.com###Tinfo
 ||cokedalk.com^
 ||cokedpariti.com^
 ||cokeyreseek.cfd^
+||cokulhivqwjyj.online^
 ||col.casa.it^
 ||col.idealista.com^
 ||col.idealista.fr^
@@ -115621,6 +115634,7 @@ zzzyk.com###Tinfo
 ||cowgategoddard.shop^
 ||cowherbcarboys.qpon^
 ||cowhmc.docmorris.de^
+||cowkinecloven.cfd^
 ||cowlitzukiyoye.cyou^
 ||cowlssubtly.com^
 ||cowpeasgnatty.qpon^
@@ -116696,6 +116710,7 @@ zzzyk.com###Tinfo
 ||csplog.kwai-pro.com^
 ||cspmkl.gruppal.com^
 ||csqojhzrapobd.online^
+||csqwtwzbioiuq.space^
 ||csr.onet.pl^
 ||csr11.net.home24.de^
 ||csr110112201eur.click^
@@ -126368,6 +126383,7 @@ zzzyk.com###Tinfo
 ||dealmoon.com/upload/dealmoon_app.jpg
 ||deals.innocode.no^
 ||deals.tamwenak.com^
+||dealshamza.cyou^
 ||dealtnubbin.qpon^
 ||dealtoneoddly.com^
 ||deanerefreetshazam.cyou^
@@ -129922,6 +129938,7 @@ zzzyk.com###Tinfo
 ||droningaced.cyou^
 ||drontethronoituyeres.cfd^
 ||droopingskilful.com^
+||droopssnigataxia.cyou^
 ||droopykind.com^
 ||drop.allsetcook.com^
 ||dropdeadgems.org^
@@ -130206,6 +130223,7 @@ zzzyk.com###Tinfo
 ||dskcjy.com^
 ||dskcwz.com^
 ||dskgna.com^
+||dskhznfwdvsce.space^
 ||dskkye.com^
 ||dskkza.com^
 ||dskmoo.com^
@@ -135945,6 +135963,7 @@ zzzyk.com###Tinfo
 ||euidbljssisql.website^
 ||euinyvddekrni.online^
 ||euitx.cn^
+||eujuvwosbuntl.online^
 ||eujxqgh.cn^
 ||eukova.com^
 ||eukvqv.mitchellstores.com^
@@ -136886,6 +136905,7 @@ zzzyk.com###Tinfo
 ||executivehoroscope.com^
 ||executors110.net^
 ||executorswith620.net^
+||exefsupvgxtla.online^
 ||exektw.fittijelo.com^
 ||exelator.com^
 ||exelbid.com^
@@ -137603,6 +137623,7 @@ zzzyk.com###Tinfo
 ||fae868edc8.com^
 ||faecbooks.com^
 ||faellesboserver.faellesbo.dk^
+||faencerodd.qpon^
 ||faenusbibbers.shop^
 ||fafaclothing.net.mydays.de^
 ||fafflesideral.com^
@@ -141837,6 +141858,7 @@ zzzyk.com###Tinfo
 ||fsmhub.icu^
 ||fsmnmorgb.com^
 ||fsmozsiqsdapq.store^
+||fsmwylwdidajd.online^
 ||fsnazsmk.icu^
 ||fsnfo.mymedic.com^
 ||fsnkdjtnifxze.site^
@@ -145328,6 +145350,7 @@ zzzyk.com###Tinfo
 ||gmads.net^
 ||gmaigshirczdk.site^
 ||gmanager.fly.business^
+||gmayxvqxstlps.space^
 ||gmbbk.com/bbsgmbbk/
 ||gmbbk.com/fb.js
 ||gmbbku.com/img/top.js
@@ -156168,6 +156191,7 @@ zzzyk.com###Tinfo
 ||hltv.org^*=|$popup,domain=hltv.org
 ||hlufsqadxupgr.website^
 ||hlukdjhhdctfh.site^
+||hluludbfielwb.site^
 ||hlumreexivler.space^
 ||hluraiwoy.com^
 ||hlvduhhlootyc.website^
@@ -158296,6 +158320,7 @@ zzzyk.com###Tinfo
 ||iadsdk.apple.com^
 ||iadsvbox2.com^
 ||iadvert.net^
+||iadwauzhjsjba.site^
 ||iaeaadfleusbk.site^
 ||iaefd.katespade.com^
 ||iaets.kodiakcakes.com^
@@ -158362,6 +158387,7 @@ zzzyk.com###Tinfo
 ||iaxitnxmakuso.store^
 ||iaxlwgtgcotvb.space^
 ||iaybafeluvuxr.online^
+||iaypvbjqskfka.online^
 ||iazada.com^
 ||iazoubkzryyux.online^
 ||iazwzp.lyst.com^
@@ -159165,6 +159191,7 @@ zzzyk.com###Tinfo
 ||iikkhsvwsiobw.space^
 ||iikrmw.xyz^
 ||iimppeky.singlove.cz^
+||iinxvumgiflrq.space^
 ||iiobbnevhyzdq.website^
 ||iionads.com^
 ||iiqtru.aunworks.jp^
@@ -160382,6 +160409,7 @@ zzzyk.com###Tinfo
 ||impersrefusesluluai.qpon^
 ||impetuousseatspeck.com^
 ||impetusorgansseparation.com^
+||impetussoja.qpon^
 ||impishbeastspreserve.com^
 ||impishglove.com^
 ||implantlongesttrey.com^
@@ -160505,6 +160533,7 @@ zzzyk.com###Tinfo
 ||inappi.me^
 ||inapps.appsflyer.com^
 ||inapps.appsflyersdk.com^
+||inarkmobilesmissary.qpon^
 ||inarkplayock.cyou^
 ||inato.xyz^
 ||inaudiblefrequently.com^
@@ -162165,6 +162194,7 @@ zzzyk.com###Tinfo
 ||inskinmedia.com^
 ||inskinmedia.com^$~stylesheet,third-party
 ||insnative.com^
+||insolepalmate.cfd^
 ||insolubledoomedbenignity.com^
 ||insomniacompulsive.com^
 ||insouloxymel.com^
@@ -162309,7 +162339,6 @@ zzzyk.com###Tinfo
 ||inte.net^
 ||inte.sogou.com^
 ||inte.sogoucdn.com^$domain=~index.sogou.com|~zhishu.sogou.com
-||integr8.digital^
 ||integr8.digital^$third-party
 ||integral-marketing.com^
 ||integrations-itbl.co^
@@ -163372,6 +163401,7 @@ zzzyk.com###Tinfo
 ||itisfaryvysjp.space^
 ||itishindia.cfd^
 ||itjjqntjvrscd.website^
+||itjqbtkkofmqj.online^
 ||itjqcf.unioneprofessionisti.com^
 ||itjsb.com/itjsbwx.jpg
 ||itjvpf.justfab.es^
@@ -163503,6 +163533,7 @@ zzzyk.com###Tinfo
 ||iuhvtj.mcdrogerie.ch^
 ||iuhwnwcmohlzt.site^
 ||iuhwuq.trendhim.dk^
+||iuigntrhfnpnk.site^
 ||iujcwb.sklep15230.shoparena.pl^
 ||iujeaa.menz-style.com^
 ||iujfxsnhivbqg.online^
@@ -163640,6 +163671,7 @@ zzzyk.com###Tinfo
 ||iwffbjlwvwloq.online^
 ||iwfitgdwowfjp.space^
 ||iwfjekkxdulwn.space^
+||iwfnejpvuwxhh.website^
 ||iwfulrglakcjj.space^
 ||iwgfdj.iko-yo.net^
 ||iwgsincqiidjv.site^
@@ -164632,6 +164664,7 @@ zzzyk.com###Tinfo
 ||jfaazyci.6dsportsnutrition.com^
 ||jfacflmbkvxez.online^
 ||jfarldlilqadf.com^
+||jfawllqc.com^
 ||jfcsw.earthmamaorganics.com^
 ||jfdfvprfq.bio-cheminee.fr^
 ||jfdfvprfq.bio-pejs.dk^
@@ -164699,6 +164732,7 @@ zzzyk.com###Tinfo
 ||jfqzv4v3zyv4lp15e4kr7oezhik1by2zpz2.cfd^
 ||jfrthphciuxjk.website^
 ||jfrtopxglnetf.online^
+||jfruiscmpygdf.website^
 ||jfsdiwmnbsk009.top^
 ||jfstv.spode.com^
 ||jfuxevakslazy.site^
@@ -164717,6 +164751,7 @@ zzzyk.com###Tinfo
 ||jfzcoyulqblry.space^
 ||jfzgxkkgnpilo.online^
 ||jfzis.cpapninja.com^
+||jfzmalujikqft.space^
 ||jfzobolqyt.com^
 ||jfzucsihbphzt.store^
 ||jg.wensixuetang.com^
@@ -164733,6 +164768,7 @@ zzzyk.com###Tinfo
 ||jgcakixnbnyng.website^
 ||jgcbbgumfijlt.online^
 ||jgchbqqejehmo.site^
+||jgcyaptmwytnh.online^
 ||jgdko.infinitegarden.shop^
 ||jgdqd.saskrush.com^
 ||jgdzthrmmhnddc.com^
@@ -165166,6 +165202,7 @@ zzzyk.com###Tinfo
 ||jkdqm.totaldiabetessupply.com^
 ||jke1.jianke.com^
 ||jkerpa.clogau.co.uk^
+||jketggvwkhhyd.online^
 ||jkfivewwaldgy.space^
 ||jkfsernucmedm.site^
 ||jkftythniutuos.com^
@@ -165819,6 +165856,7 @@ zzzyk.com###Tinfo
 ||jqrgweazndruf.online^
 ||jqrlt.groomie.club^
 ||jqronboikqdxd.site^
+||jqsdkzhzruhyr.online^
 ||jqsex.com^
 ||jqsklowxurgbh.online^
 ||jqsnt.cafepress.com^
@@ -166133,6 +166171,7 @@ zzzyk.com###Tinfo
 ||jshmagjalnjcn.site^
 ||jshvwhcznwigo.site^
 ||jshwg.maku-industrie.de^
+||jsidimivjlbxl.website^
 ||jsinfo.net^$third-party
 ||jsiqmwuldig.com^
 ||jsivqe.aramco8.com^
@@ -166768,6 +166807,7 @@ zzzyk.com###Tinfo
 ||jyjlhlfystctf.website^
 ||jymswcocmpteo.space^
 ||jymxse.baeulhak.com^
+||jynhfdeqikwkf.space^
 ||jynmirqnknupr.space^
 ||jynrmyqfnlfzg.website^
 ||jynthelon.com^
@@ -166840,6 +166880,7 @@ zzzyk.com###Tinfo
 ||jzo.bb1fm9cu612nz6ro4654h.cyou^
 ||jzokkeaebbjbw.top^
 ||jzprtb.1stdibs.com^
+||jzpuhqbyixcsh.site^
 ||jzqbyykqebrzl.top^
 ||jzqfac.bestsecret.ch^
 ||jzrcod.ygl.co.il^
@@ -169929,6 +169970,7 @@ zzzyk.com###Tinfo
 ||l1vec4ms.com^
 ||l1y267efmn.com^
 ||l2.siliconeintakes.com^
+||l22vkfboux47r548nm7mtjwx3w.cfd^
 ||l23jhjfasd.xyz^
 ||l2fmm7sp.xyz^
 ||l2i.qualityinnlevis.com^
@@ -170750,6 +170792,7 @@ zzzyk.com###Tinfo
 ||lcztnn.asics-trading.co.jp^
 ||ld0766.com/*20*a/
 ||ld0766.com/index.php?m=call&id=10
+||ld1qwww3kj.com^
 ||ldaqsvgwamnwi.com^
 ||ldb.cc/js/top.js
 ||ldcao.juiceplus.com^
@@ -171035,6 +171078,7 @@ zzzyk.com###Tinfo
 ||leesomewoa.cyou^
 ||leet61t2.hprvwf66vvr5kbc7ztgf17kelvc.cyou^
 ||leetaipt.net^
+||leetcode.com/api/banner/qd-submission-banner/
 ||leetlinkage.com^
 ||leewanocimum.qpon^
 ||leeziccbpknmr.space^
@@ -171616,6 +171660,7 @@ zzzyk.com###Tinfo
 ||libertycoinsdrew.com^
 ||libertystmedia.com^
 ||libertystmedia.com^$popup
+||liberummorphoyet.cfd^
 ||libgetkotal.com^
 ||libi-wear.com^
 ||library.acspubs.org^
@@ -172778,6 +172823,7 @@ zzzyk.com###Tinfo
 ||lnjzu.sunsarasuncatchers.com^
 ||lnk8j7.com^
 ||lnk8j7.com^$popup
+||lnkbuygvhawef.space^
 ||lnkgt.com^
 ||lnkgt.com^$popup
 ||lnkhs.auburntigers.com^
@@ -180852,6 +180898,7 @@ zzzyk.com###Tinfo
 ||lxoemc.paginebianche.it^
 ||lxoemc.siviaggia.it^
 ||lxoemc.tuttocitta.it^
+||lxqbhylizavrg.site^
 ||lxqcgj.com^
 ||lxrhymhpiycum.online^
 ||lxrjekw.com^
@@ -184406,6 +184453,7 @@ zzzyk.com###Tinfo
 ||matwbp.iask.sina.com.cn^
 ||matytt.tone.ne.jp^
 ||mauiv.innisfree.com^
+||maukinrosland.com^
 ||maunchesudser.qpon^
 ||mausk.shopbeam.com^
 ||mautic-learn.teky.edu.vn^
@@ -189513,6 +189561,7 @@ zzzyk.com###Tinfo
 ||microwave97.com^
 ||mictests.com/myshowroom/view.php$subdocument
 ||mid-round.com^
+||midairfuran.cfd^
 ||midas-i.com^
 ||midas-network.com^
 ||midas-network.com^$third-party
@@ -194030,6 +194079,7 @@ zzzyk.com###Tinfo
 ||ndcyoghbozx.com^
 ||ndcywq.ullapopken.fr^
 ||ndd3wvq0cw.com^
+||nddvqyjwrjpia.online^
 ||ndeaevniyitst.site^
 ||ndegj3peoh.com^
 ||ndenceschemica.org^
@@ -194044,6 +194094,7 @@ zzzyk.com###Tinfo
 ||ndfzypqpfglnv.online^
 ||ndg.io^
 ||ndgibjk.com^
+||ndgjcxgjfnyxj.site^
 ||ndgrlo.visiondirect.com.au^
 ||ndgtvuwmlszsl.space^
 ||ndhadbeensoa.org^
@@ -194108,6 +194159,7 @@ zzzyk.com###Tinfo
 ||neatrule.com^
 ||neatshade.com^
 ||neatstats.com^
+||neatwheel.com^
 ||nebnfvbsgosfp.site^
 ||nebula.donnezvotrevoiture.org^
 ||nebula.roole.fr^
@@ -195661,6 +195713,7 @@ zzzyk.com###Tinfo
 ||nlkylpo.com^
 ||nllddbvlkwgbs.online^
 ||nllgzvgoudbdnq.com^
+||nllmzabgairu.com^
 ||nllvrimafveet.site^
 ||nllzvzafpfodg.space^
 ||nlmhhgvljqktf.website^
@@ -195833,6 +195886,7 @@ zzzyk.com###Tinfo
 ||nndzsw.com^
 ||nndzsw1.com^
 ||nneephon.com^
+||nnekvqidiwrys.online^
 ||nnequjqx761vyr.cfd^
 ||nneuvn.reruju.com^
 ||nnfjh.nuzzle60.com^
@@ -195920,6 +195974,7 @@ zzzyk.com###Tinfo
 ||nocdncnjaujhd.site^
 ||nocivedugongs.com^
 ||nockanusxesoc.store^
+||nockswjkkomxs.website^
 ||nocodelytics.com^
 ||noctisunlap.shop^
 ||nocvob.yellohvillage.fr^
@@ -196386,6 +196441,7 @@ zzzyk.com###Tinfo
 ||nqfem.babor.com^
 ||nqgmcp.chairish.com^
 ||nqhaxn.haruyama.jp^
+||nqhjplxwjhqps.site^
 ||nqhtwgphsgujn.space^
 ||nqifvntxhqpxx.store^
 ||nqjyv.wsjwine.com^
@@ -196673,6 +196729,7 @@ zzzyk.com###Tinfo
 ||ntcfrzpzmeite.site^
 ||ntcpsljddomwh.online^
 ||ntdars.fotodevakman.nl^
+||ntdnrookfkvzl.website^
 ||ntdoeb.garageclothing.com^
 ||ntdtv.com/assets/themes/ntd/js/article_ads.js
 ||ntegrodvtu.com^
@@ -197407,6 +197464,7 @@ zzzyk.com###Tinfo
 ||o4svlxhjun.xyz^
 ||o4uxrk33.com^
 ||o5.uklbxk74ck8898ii2rgj83crbt19l234z3jfk.cyou^
+||o522zsxbgf.com^
 ||o5jz24jq.7gfhy999j6gefoorqgkrxt8w49lizgv.cyou^
 ||o5kniji94pv61t17.rest^
 ||o5tir3zfugeo6ej.rest^
@@ -197918,6 +197976,7 @@ zzzyk.com###Tinfo
 ||oedcylluwpivu.site^
 ||oeddcqpagllfy.website^
 ||oedlmz.underarmour.it^
+||oedwmgcylrfne.space^
 ||oefdjrivunaqq.website^
 ||oeg.icedistrict.com^
 ||oeg.loiltyrewards.com^
@@ -198402,6 +198461,7 @@ zzzyk.com###Tinfo
 ||oinjkenwok.xyz^
 ||oinkedbowls.com^
 ||oinkedcerreroophrys.cfd^
+||oinkinghornishsompay.qpon^
 ||oinlkwdsx.xyz^
 ||oinlkwr.xyz^
 ||ointmentapathetic.com^
@@ -198431,6 +198491,7 @@ zzzyk.com###Tinfo
 ||oiuqwppcsdf.com^
 ||oivay.app^
 ||oivay.vip^
+||oivpkegadjuqc.site^
 ||oiwlnlu.com^
 ||oiwnrl.theory.co.jp^
 ||oiwryudeyymdj.online^
@@ -198619,6 +198680,7 @@ zzzyk.com###Tinfo
 ||olagurfy.brondum.no^
 ||olagurfy.brondumparts.com^
 ||olarodwood.com^
+||olaycqxkhudgw.site^
 ||olayomad.com^
 ||olcjs.chicos.com^
 ||olclm.halloweencostumes.com^
@@ -199336,6 +199398,7 @@ zzzyk.com###Tinfo
 ||onestat.com^
 ||onetag-sys.com^
 ||onetag-sys.com^$third-party
+||onetag.adnx.jp^
 ||onetag.co.kr^
 ||onetarget.ru^
 ||onethestruis.com^
@@ -200957,6 +201020,7 @@ zzzyk.com###Tinfo
 ||oxlikeunkin.com^
 ||oxlmsxqhjtykk.online^
 ||oxlqojvewyjni.site^
+||oxlueigiwmyxh.com^
 ||oxmhrrzmoqnco.online^
 ||oxobspquzpzcu.online^
 ||oxocbg.sarokas.fi^
@@ -201045,6 +201109,7 @@ zzzyk.com###Tinfo
 ||oyvxypcmoqhub.site^
 ||oywmcoplfbsao.site^
 ||oyxfysqkddwyh.space^
+||oyxnqrllekidh.site^
 ||oyxp.xyz^
 ||oyxuwtmaggodi.site^
 ||oyydrqvuoahcz.online^
@@ -201075,6 +201140,7 @@ zzzyk.com###Tinfo
 ||ozelmedikal.com^$third-party
 ||ozfejflhimwls.online^
 ||ozfisiodlybdi.site^
+||ozfwjkgeismsk.online^
 ||ozfxwlyarvwzy.site^
 ||ozihlzpeabppp.online^
 ||ozikxjdxczhbg.online^
@@ -203053,6 +203119,7 @@ zzzyk.com###Tinfo
 ||pdhvdvqwpewda.site^
 ||pdhwzl.icu^
 ||pdiabbi.cn^
+||pdihpjpkxgqjb.online^
 ||pdiiclqzeglig.site^
 ||pditfcqewnobw.site^
 ||pdixvlkcnchon.online^
@@ -203141,6 +203208,7 @@ zzzyk.com###Tinfo
 ||pearchpities.com^
 ||pearl.tasjeel.ae^
 ||pearldiver.io^
+||pearlsgriths.qpon^
 ||pearpermitted.com^
 ||pearpouch.com^
 ||pears.contractorcalculator.co.uk^
@@ -204735,9 +204803,11 @@ zzzyk.com###Tinfo
 ||pjqrr.agapexoxo.com^
 ||pjrkspcllfpji.online^
 ||pjrtamlmqaaoe.space^
+||pjruirhev.com^
 ||pjsao.thegivenget.com^
 ||pjsbuhl.icu^
 ||pjscidzcdxxzo.website^
+||pjscldkqgzdxn.online^
 ||pjskq.kendrascott.com^
 ||pjsos.xyz^
 ||pjtime.com/js/show_ad
@@ -205710,6 +205780,7 @@ zzzyk.com###Tinfo
 ||pokazuwka.com/popu/
 ||pokerlapwing.shop^
 ||pokitom.com^
+||pokmexzddbxnv.site^
 ||pokoran.com^
 ||pokrc.hotelcollection.ca^
 ||pokrutim.ru^
@@ -206236,6 +206307,7 @@ zzzyk.com###Tinfo
 ||potwortfurnace.cyou^
 ||poudretsodomy.com^
 ||pouhwpuqcutlc.online^
+||poulterrandan.cyou^
 ||pouncetdiddy.cfd^
 ||pouncetusk.com^
 ||poundquandaryabsently.com^
@@ -206529,6 +206601,7 @@ zzzyk.com###Tinfo
 ||prairiedog.health-improvement.uk^
 ||prairiedog.xview.us^
 ||pramrowanslang.com^
+||prancedpilotee.cyou^
 ||prankhistorian.com^
 ||prankubg.com^
 ||praosthill.cfd^
@@ -207785,6 +207858,7 @@ zzzyk.com###Tinfo
 ||psico.powermindfulness.com^
 ||psicologia-data.faculdademaratlantico.com.br^
 ||psidbv.cms-constructeur.fr^
+||psidrurally.qpon^
 ||psigloutishrameous.cyou^
 ||pskzt.cleobella.com^
 ||pslps.graveltravel.com^
@@ -209086,6 +209160,7 @@ zzzyk.com###Tinfo
 ||qagrgbcg.com^
 ||qahmipatkmaj.com^
 ||qahxwy.goosecreekcandle.com^
+||qaiithevrvdip.online^
 ||qaili.kennyflowers.com^
 ||qaixhtzsjyipb.store^
 ||qajkvcdzxcqvn.space^
@@ -209098,6 +209173,7 @@ zzzyk.com###Tinfo
 ||qalizyiehylan.space^
 ||qaljfiwv.com^
 ||qamnyl.bever.nl^
+||qamnyzjjnfybo.online^
 ||qamrajywditki.online^
 ||qamurtajzovce.site^
 ||qanbzrgbcafeo.online^
@@ -209299,6 +209375,7 @@ zzzyk.com###Tinfo
 ||qddlm.com^
 ||qdemrnocqeadj.site^
 ||qdfxgk.plst.co.jp^
+||qdgscaydqhmib.space^
 ||qdgyxhbasgytt.online^
 ||qdhjl.borne.com^
 ||qdhzgg.premoa.co.jp^
@@ -209309,6 +209386,7 @@ zzzyk.com###Tinfo
 ||qdjjhhdn.shellshockcbd.com^
 ||qdkaky.rikilovesriki.com^
 ||qdkpyueaqswtv.online^
+||qdlbikruukset.site^
 ||qdldp.slateflosser.com^
 ||qdlrbnjioxxnl.website^
 ||qdlzj.cn^
@@ -209428,6 +209506,7 @@ zzzyk.com###Tinfo
 ||qezodjntkbtah.site^
 ||qezpjlp.cn^
 ||qf1d.top^
+||qf21yrnmnk.com^
 ||qf51ho9qtz.com^
 ||qf7fj5k1569ll8xrohk7f.cfd^
 ||qfanyeojjmkmw.online^
@@ -209685,6 +209764,7 @@ zzzyk.com###Tinfo
 ||qipaspjivpupa.website^
 ||qippmoosw.in^
 ||qiq.videouniquebooster.com^
+||qiqybkbj.com^
 ||qirbtkfgqdaug.website^
 ||qirgzaosm.in^
 ||qirloith.com^
@@ -209778,6 +209858,7 @@ zzzyk.com###Tinfo
 ||qjklzm.telethon.fr^
 ||qjlho.giairl.com^
 ||qjmsmj.invia.cz^
+||qjmxiytmstjru.site^
 ||qjnbocndpuupl.site^
 ||qjnhs.teva.com^
 ||qjpnn.winnowlabs.com^
@@ -209839,6 +209920,7 @@ zzzyk.com###Tinfo
 ||qksrv.net^
 ||qksxet.zeetours.nl^
 ||qksz.net^
+||qktchvwwrx.com^
 ||qktdz.naturium.com^
 ||qktmwiq.cn^
 ||qktnee.fribikeshop.dk^
@@ -211081,6 +211163,7 @@ zzzyk.com###Tinfo
 ||qxlshnvo.try7hydro.com^
 ||qxmvywrkypkwq.space^
 ||qxnuan.noo-paris.com^
+||qxoyjazerhweh.site^
 ||qxpizber.breezethrucarwash.com^
 ||qxplus.ru^
 ||qxpxrbettkskb.space^
@@ -216475,6 +216558,7 @@ zzzyk.com###Tinfo
 ||rvodbrxbuzbkz.website^
 ||rvolkknctgbvy.site^
 ||rvpjv.commodityfragrances.com^
+||rvpmcpnkrcfeh.site^
 ||rvptmn.elmenyplaza.hu^
 ||rvpxfvzbbww.com^
 ||rvrl1srlq.com^
@@ -218026,7 +218110,6 @@ zzzyk.com###Tinfo
 ||sab5a4zz5.com^
 ||sabaidea.cloud^
 ||sabaothbivvy.qpon^
-||sabasadara.com^
 ||sabasadara.com^$document
 ||sabatonpeise.cfd^
 ||sabavision.com^
@@ -219476,6 +219559,7 @@ zzzyk.com###Tinfo
 ||scnt.rambler.ru^
 ||scode.randomhouse.com^
 ||scoegp.learnandmaster.com^
+||scoggerobtestslimily.qpon^
 ||scogienaira.cyou^
 ||scogruyyomglj.online^
 ||scokestellio.cfd^
@@ -228998,6 +229082,7 @@ zzzyk.com###Tinfo
 ||showguide.cn/templets/*/qqcenter.js
 ||showguide.cn/templets/*/sg-ad.js
 ||showilyaletap.com^
+||showlpyxiziqj.space^
 ||showmebars.com^
 ||showmethat.click^
 ||showmeyouradsnow.com^
@@ -230038,6 +230123,7 @@ zzzyk.com###Tinfo
 ||skizu.canvasonsale.com^
 ||skjsxlnvnlrcs.space^
 ||skkjtopbgnflw.website^
+||skkthpvkttwzn.space^
 ||skkvjtdgmloiw.site^
 ||sklep-status.langnite.pl^
 ||sklo.minimarvels.sk^
@@ -235329,6 +235415,7 @@ zzzyk.com###Tinfo
 ||snaeyjnavvojo.online^
 ||snaggedcatface.qpon^
 ||snaglighter.com^
+||snagsretard.cyou^
 ||snailammoniabees.com^
 ||snailok.com/template/stui_tpl/sdfsdfzxxsa/dxf.js
 ||snailok.com/template/stui_tpl/sdfsdfzxxsa/heade.js
@@ -237854,6 +237941,7 @@ zzzyk.com###Tinfo
 ||srvupads.com^
 ||srw.remasterify.com^
 ||srware.net/iron/assets/img/av/
+||srwcceaxjsyme.website^
 ||srx.com.sg/srx/media/
 ||srxapahdausas.space^
 ||srxbnrcgaayhv.website^
@@ -258678,11 +258766,11 @@ zzzyk.com###Tinfo
 ||tarantula.tuxedo.media^
 ||taraponmately.qpon^
 ||tarbfjimpnnbvi.com^
-||tardangro.com^
 ||tardangro.com^$third-party
 ||tardanttawneys.cfd^
 ||tardierrouges.com^
 ||targaubs.com^
+||targedburelly.cyou^
 ||targeet.shop^
 ||target-omtrdc.deka.de^
 ||target-test.cisco.com^
@@ -259577,6 +259665,7 @@ zzzyk.com###Tinfo
 ||tdrczdscckdwu.online^
 ||tdrfkjquccukb.space^
 ||tdrhanms.umfloors.eu^
+||tdribgaza.com^
 ||tds.bid^
 ||tds.favbet.partners^
 ||tds.io^
@@ -260610,6 +260699,7 @@ zzzyk.com###Tinfo
 ||thegioididong.store^
 ||thegioidienmayxanh.com^
 ||theglossonline.com^
+||thegnalary.cfd^
 ||thegreatesthits.
 ||thegreatesthits.amazona.de^
 ||thegreatesthits.bassic.de^
@@ -261314,6 +261404,7 @@ zzzyk.com###Tinfo
 ||tiltwin.com^$popup
 ||tim.nextinpact.com^
 ||tim.webtim.si^
+||timanigriped.qpon^
 ||timbressclere.qpon^
 ||timbresthump.qpon^
 ||time-and-attendance.insperity.com^
@@ -261542,6 +261633,7 @@ zzzyk.com###Tinfo
 ||titanpoker.com^
 ||titersfungals.cfd^
 ||tithesmopeder.cfd^
+||titienaffichegarrat.qpon^
 ||titiesphilterlopeman.cfd^
 ||titismimmoud.com^
 ||titki55.cc^
@@ -262509,6 +262601,7 @@ zzzyk.com###Tinfo
 ||togdrqcmslai.com^
 ||together2night.com^$popup
 ||togetherefwuko.org^
+||toggedsawalifanti.qpon^
 ||toggle.qq.com^
 ||tognrhqgiyaja.online^
 ||togo.fris.online^
@@ -262920,6 +263013,7 @@ zzzyk.com###Tinfo
 ||torupypxhtrci.space^
 ||torvind.com^
 ||torvousrottle.qpon^
+||toryfysapiensaumaga.qpon^
 ||tos.botex.dk^
 ||toscytheran.com^
 ||toscytheran.com^$popup
@@ -270381,6 +270475,7 @@ zzzyk.com###Tinfo
 ||tzhoudwocxvfl.online^
 ||tzifafpdvzcxl.website^
 ||tzifhmvuju.com^
+||tzimpezihat.in^
 ||tzipd.rockemsocks.com^
 ||tzj.bq9tqqerhiz5vyt.cyou^
 ||tzkeyrlgwfhml.website^
@@ -271120,6 +271215,7 @@ zzzyk.com###Tinfo
 ||ugws.dermachershop.de^
 ||ugwsvh.eurorelogios.com.br^
 ||ugxcvvfmhxjus.space^
+||ugxlk87yei5lieq8.rest^
 ||ugyppaqollegn.online^
 ||ugzbsu.klimaworld.com^
 ||ugzlf.bossaudio.com^
@@ -271257,6 +271353,7 @@ zzzyk.com###Tinfo
 ||uivsstyggpxpd.website^
 ||uivylgraexanl.site^
 ||uiwock.epantofi.ro^
+||uiwxobfcvxrki.online^
 ||uiwyirmq.kids-world.com^
 ||uiwyirmq.kids-world.dk^
 ||uixbwmrkfrvmc.space^
@@ -271296,6 +271393,7 @@ zzzyk.com###Tinfo
 ||ujndb.moventashop.com^
 ||ujnkn.com^
 ||ujnsh.discovericl.com^
+||ujosjyaidtlgb.online^
 ||ujpcgbe9.xyz^
 ||ujpqiykehtfry.online^
 ||ujq1.destinia.is^
@@ -271717,6 +271815,7 @@ zzzyk.com###Tinfo
 ||unbogwhift.cyou^
 ||unbokeltelegn.qpon^
 ||unboltcoran.cfd^
+||unbqfwqomosqf.space^
 ||unbrokebusbars.shop^
 ||unbrownunflat.com^
 ||unbulkydewer.qpon^
@@ -272062,6 +272161,7 @@ zzzyk.com###Tinfo
 ||unobeseownness.cfd^
 ||unoldluridly.com^
 ||unovertkiths.qpon^
+||unownedswipes.cyou^
 ||unownluluai.cfd^
 ||unpackelasticlens.com^
 ||unpackstaleintended.com^
@@ -272668,6 +272768,7 @@ zzzyk.com###Tinfo
 ||urinesrepique.cyou^
 ||uriokr.bauhaus.es^
 ||urit.launchpass.com^
+||urixkmzsilhoj.space^
 ||urjass.urjalanmakeistukku.fi^
 ||urkkxdmmgvfxk.online^
 ||urkrxjgvugpqg.website^
@@ -274697,6 +274798,7 @@ zzzyk.com###Tinfo
 ||vdacdn1.viettel.vn^
 ||vdacdn2.viettel.vn^
 ||vdangi.topshelfgolf.com^
+||vdatujjxpnsrt.site^
 ||vdbaa.com^
 ||vdbank.com.vn^
 ||vdbbiwvxvhzdt.online^
@@ -275209,6 +275311,7 @@ zzzyk.com###Tinfo
 ||vgqnyyxv.xyz^
 ||vgrbvi.atncorp.com^
 ||vgrmgnzkbcpjj.site^
+||vgrzmhqfxmzha.online^
 ||vgs-collect-keeper.apps.verygood.systems^
 ||vgsysjilsolts.site^
 ||vgtafcduuqbii.site^
@@ -276216,6 +276319,7 @@ zzzyk.com###Tinfo
 ||vivaylien.com^
 ||vivayvnd.com^
 ||vivi.stape.dev^
+||vividbucket.com^
 ||vividcache.com^
 ||vividcanopy.com^
 ||vividcash.com^
@@ -276394,6 +276498,7 @@ zzzyk.com###Tinfo
 ||vldlklwhhcdyf.site^
 ||vldmag.osoujihonpo.com^
 ||vldukhscbnhsl.site^
+||vldzucmnfwlbv.space^
 ||vle6r0hma.com^
 ||vleqrwluxgslv.online^
 ||vletcombank.com^
@@ -277873,6 +277978,7 @@ zzzyk.com###Tinfo
 ||vz.7vid.net^
 ||vz95953ow5.com^
 ||vzafeclhxfuym.website^
+||vzahusxfeqscw.website^
 ||vzal21mooz.hyperwrite.ai^
 ||vzayis1qa.com^
 ||vzaznkojzoyyo.online^
@@ -280382,6 +280488,7 @@ zzzyk.com###Tinfo
 ||whoppngzrzsyz.online^
 ||whorledebbets.cyou^
 ||whorlefrisky.cfd^
+||whorlyoclock.cyou^
 ||whortsiddat.com^
 ||whosclickingwho.com^
 ||whoseesyou.com^
@@ -280762,6 +280869,7 @@ zzzyk.com###Tinfo
 ||wisemaneschew.cfd^
 ||wiseref.com^
 ||wisetrack.net^
+||wishersamoebae.qpon^
 ||wishesantennarightfully.com^
 ||wishesen.com^
 ||wishfulresemble.com^
@@ -281089,6 +281197,7 @@ zzzyk.com###Tinfo
 ||wmip.ru^
 ||wmirk.ru^
 ||wmizdm.relax-job.com^
+||wmjyzspmgibxk.site^
 ||wmkyrnbejgyku.website^
 ||wmlatpmbcaebl.space^
 ||wmlink.ru^
@@ -283014,6 +283123,7 @@ zzzyk.com###Tinfo
 ||x33rq8hepl37g5.cfd^
 ||x35ehot6mu.com^
 ||x360xs.com/tops/
+||x36k7uq3jkqcme8p2n.cfd^
 ||x3jhw0klp.com^
 ||x3lps9uuog.com^
 ||x3m.biz^
@@ -285233,6 +285343,7 @@ zzzyk.com###Tinfo
 ||xnvxwgiytrszi.space^
 ||xnwoyfoqfwvck.site^
 ||xnxiqoowtetcy.online^
+||xnxslghxokdmj.online^
 ||xnxx.army/click/
 ||xnxx.tv/zoneload/
 ||xnxxporn.video/nb39.12/
@@ -285250,6 +285361,7 @@ zzzyk.com###Tinfo
 ||xoanonpacking.com^
 ||xoaveubcbdpld.com^
 ||xobytn.vvsochbad.se^
+||xodbedtzdhrsx.site^
 ||xoeekttjkifhz.online^
 ||xogogowebcams.com^
 ||xogogowebcams.com^$third-party
@@ -286259,6 +286371,7 @@ zzzyk.com###Tinfo
 ||y74s.xyz^
 ||y752.milfordmirror.com^
 ||y7bo6nwk.xyz^
+||y7f8f8fhyktvivl7xin1.rest^
 ||y820.darientimes.com^
 ||y84shrg6ui.com^
 ||y85522qooyngglo5.cfd^
@@ -287090,6 +287203,7 @@ zzzyk.com###Tinfo
 ||yivtsnnmutzkb.site^
 ||yivxzt.doctor-agent.com^
 ||yiw2iei.icu^
+||yiwdzjbjlxrgo.space^
 ||yiwnwjzhlce.com^
 ||yiwqcxwajqouq.website^
 ||yixhy1vpln8bjuy1.cfd^
@@ -287119,6 +287233,7 @@ zzzyk.com###Tinfo
 ||yjibimcrcylrg.website^
 ||yjigiv1ic.com^
 ||yjiqwytzluwhs.site^
+||yjiwejatqmjpl.online^
 ||yjjcz9rj73eq88q.rest^
 ||yjjfvcbzbrppe.store^
 ||yjjrrfnlgkopz.space^
@@ -287460,6 +287575,7 @@ zzzyk.com###Tinfo
 ||yodjmbkeiafuf.website^
 ||yodo1.com^
 ||yoebympnetbjx.site^
+||yoeixwvecnumq.site^
 ||yoenutty.cfd^
 ||yofprpv.cn^
 ||yoga.janetstoneyoga.com^
@@ -289650,6 +289766,7 @@ zzzyk.com###Tinfo
 ||zjhwrc.*/js/head.js
 ||zjijuf.canlidershane.net^
 ||zjikqm.europcar.ie^
+||zjitqhlxculry.online^
 ||zjixiy.tectake.ch^
 ||zjjbtl.com^
 ||zjjfmf9m3q.com^
@@ -290052,6 +290169,7 @@ zzzyk.com###Tinfo
 ||zogaptujudlkq.site^
 ||zogczipe5hp25gempz.rest^
 ||zogio.kiauraeyewear.com^
+||zogkhrjeuzhon.site^
 ||zogle.sithealthier.com^
 ||zogmfiyljbdvf.space^
 ||zogrepsili.com^
@@ -297565,7 +297683,7 @@ zuuk.org###fl10
 ~telephony.yandex.ru,yandex.by,yandex.fr,yandex.kz,yandex.ru,yandex.ua,yandex.uz##[class*="mg-grid__"]>div[class*=_status_success]
 ! >>>>>> meta 结束 <<<<<<
 
-! >>>>>> privacy · 27624 <<<<<<
+! >>>>>> privacy · 27626 <<<<<<
 ###cxense-recs-in-article
 ##.embed-responsive-trendmd
 $csp=child-src 'none'; frame-src 'self' *; worker-src 'none',domain=fileone.tv|theappguruz.com
@@ -300620,6 +300738,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 /uem-ep.js
 /uisprime/track
 /umami.js
+/umami/script.js
 /umg-analytics.min.js
 /umg-analytics/umgaal.min.js
 /umt.gif?
@@ -314946,6 +315065,7 @@ omni.soundestlink.com$image
 ||log.go.com^
 ||log.mediacategory.com^
 ||log.news.baidu.com^
+||log.nordot.jp^$~script
 ||log.outbrain.com^
 ||log.outbrain.com^$domain=autobild.de|widgets.outbrain.com
 ||log.popin.cc^
