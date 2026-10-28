@@ -3,10 +3,12 @@
 import io
 import json
 import os
+import re
 import tempfile
 import unittest
 
-from build import CATEGORIES, collect_edition, parse_upstream, render_ruleset, run
+from build import (CATEGORIES, collect_edition, fetch_url, parse_upstream,
+                   render_ruleset, run, sanitize_lite, sanitize_lite_dict, verify_lite)
 
 
 CATEGORY_ORDER = ["main", "meta", "privacy", "watermark", "login", "cookie", "whitelist"]
@@ -101,6 +103,111 @@ class RenderRulesetTests(unittest.TestCase):
         self.assertIn("! Total count: 0", text)
 
 
+class SanitizeLiteTests(unittest.TestCase):
+    """lite 净化：以 lingeringsound 官方转换管线为权威清单，Via 分析脚本为校验 oracle。
+    sanitize_lite(lines, editions) -> {edition: [lines]}。
+
+    构造三类样例：应 drop、应剥壳、应保留，分别断言。
+    """
+
+    def setUp(self):
+        # 应用全部净化步骤后的行集
+        self.lines = [
+            # —— 应 drop（官方配方 / Via 脚本 / 补充项）——
+            "##+js(aopw, window.open)",                    # 脚本注入
+            "example.com#%#//scriptlet('set-constant')",    # AdGuard 脚本
+            "example.com#$#body { background: none; }",     # CSS 注入
+            "example.com#?#.ad-overlay",                    # 程序化
+            "example.com$$script[src*='ads']",              # HTML 过滤
+            "||ads.com^$badfilter",                         # badfilter
+            "||ads.com^$generichide",                       # generichide
+            "||x.com^$redirect=abp-resource:blank-js",      # redirect=
+            "||x.com^$rewrite=abp-resource:blank-mp4",      # rewrite=（补充）
+            "||x.com^$stealth=useragent",                   # stealth=（补充）
+            "||x.com^$app=com.foo",                         # app=（补充）
+            "##.ad:has-text(广告)",                          # 特殊伪类
+            "##.banner:matches-css-before(content: 'spon')", # matches-css-before
+            "/^https?:\\/\\/ads\\./",                       # 正则
+            # —— 应剥壳保留 ——
+            "||pop.com^$popup",                              # $popup 剥壳
+            "||doc.com^$important,image",                    # $important 剥壳
+            "||x.com^$document",                             # $document 剥壳
+            # —— 应原样保留 ——
+            "||a.com^$third-party",                          # 基础类型
+            "##.plain-ad",                                   # 常规 CSS
+            "example.com##div#banner",                       # 域名限定 CSS
+            "@@||c.com^",                                    # 白名单
+        ]
+
+    def test_drop_rules_are_removed(self):
+        kept = sanitize_lite(self.lines, "lite")
+        text = "\n".join(kept)
+        for bad in (
+            "##+js(", "#%#", "#$#", "#?#", "$$script[",
+            "$badfilter", "$generichide", "$redirect=", "$rewrite=",
+            "$stealth=", "$app=", ":has-text(", ":matches-css-before",
+            r"/^https?:\/\/ads\./", "$popup", "$important", "$document",
+        ):
+            self.assertNotIn(bad, text, bad)
+
+    def test_shell_and_normal_kept(self):
+        kept = sanitize_lite(self.lines, "lite")
+        text = "\n".join(kept)
+        self.assertIn("||a.com^$third-party", text)
+        self.assertIn("##.plain-ad", text)
+        self.assertIn("example.com##div#banner", text)
+        self.assertIn("@@||c.com^", text)
+
+    def test_dedup_within_lite(self):
+        lines = ["||dup.com^$domain=a.com", "||dup.com^$domain=b.com", "||dup.com^"]
+        kept = sanitize_lite(lines, "lite")
+        self.assertEqual(kept, ["||dup.com^"])
+
+    def test_dedup_across_categories_global(self):
+        """跨类别折叠：同一基础模式只保留首次出现类别的一条。"""
+        lines_by_cat = {
+            "main": ["||dup.com^$domain=a.com"],
+            "privacy": ["||dup.com^$domain=b.com"],
+        }
+        out = sanitize_lite_dict(lines_by_cat, ["main", "privacy"])
+        self.assertEqual(out["main"], ["||dup.com^$domain=a.com"])
+        self.assertEqual(out["privacy"], [])
+
+    def test_dedup_ignores_domain_value_variants(self):
+        """同一 base 不同 domain= 值视为重复（只保留第一条）。"""
+        lines_by_cat = {
+            "main": ["||dup.com^$third-party,domain=a.com", "||dup.com^$domain=b.com"],
+        }
+        out = sanitize_lite_dict(lines_by_cat, ["main"])
+        self.assertEqual(len(out["main"]), 1)
+        self.assertEqual(out["main"][0], "||dup.com^$third-party,domain=a.com")
+
+    def test_shell_exposes_hidden_unsupported_is_dropped(self):
+        """剥壳可能暴露隐藏违规（$document,stealth= -> $stealth=）：二次 drop 检查必须拦截。"""
+        lines = ["@@||linksflys.com^$document,stealth=referrer"]
+        kept = sanitize_lite(lines, "lite")
+        self.assertEqual(kept, [])
+        self.assertNotIn("linksflys", "".join(kept))
+
+    def test_verify_lite_clean_passes(self):
+        """干净产物通过校验；含不支持/重复/残留则失败。"""
+        clean = "[Adblock Plus 2.0]\n! Title: x\n\n##.ad\n||a.com^$third-party\n@@||c.com^\n"
+        ok, report = verify_lite(clean)
+        self.assertTrue(ok, report)
+
+        bad = clean + "##+js(aopr)\n||dup.com^$domain=a.com\n||dup.com^$image\n"
+        ok, report = verify_lite(bad)
+        self.assertFalse(ok)
+        self.assertIn("unsupported(Via脚本): 1", report)
+        self.assertIn("dup(base修正): 1", report)
+
+    def test_lite_sanitize_returns_all_editions_when_no_edition_filter(self):
+        result = sanitize_lite(self.lines, None)
+        self.assertEqual(sorted(result.keys()), ["lite", "origin"])
+        # origin 不净化：全量保留
+        self.assertEqual(result["origin"], self.lines)
+
+
 class CollectEditionTests(unittest.TestCase):
     """配置 + 已拉取文本 -> 某一版的分类行字典（通用源两版共享，特供源按版归属同类别）。"""
 
@@ -127,7 +234,7 @@ class CollectEditionTests(unittest.TestCase):
 
 
 class RunEndToEndTests(unittest.TestCase):
-    """端到端：配置 + 注入 transport -> 双产物落盘；失败源跳过并报告。"""
+    """端到端：配置 + 注入 transport -> 双产物落盘；失败源跳过并报告；lite 净化钩子。"""
 
     CONFIG = {
         "categories": CATEGORY_ORDER,
@@ -223,6 +330,18 @@ class RunEndToEndTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertEqual(calls["u-generic"], 3)
         self.assertIn("[skip: u-generic]", report)
+
+
+class FetchUrlTests(unittest.TestCase):
+    """fetch_url：urllib 优先，失败 fallback 到 curl。"""
+
+    def test_valid_url_returns_text(self):
+        """真实可达 URL 返回非空文本（网络 OK 时）。"""
+        try:
+            text = fetch_url("https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt", timeout=60)
+        except Exception as exc:  # 本机网络可能不可达，跳过断言
+            self.skipTest(f"network unavailable: {exc}")
+        self.assertTrue(text.strip())
 
 
 class ParseUpstreamTests(unittest.TestCase):

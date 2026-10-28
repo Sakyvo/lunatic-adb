@@ -10,7 +10,7 @@
 | lite | <https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb-lite.txt> | <https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb-lite.txt> |
 
 - origin：uBlock Origin / AdGuard 等支持完整语法的引擎
-- lite：VIA / Rian 等轻量引擎
+- lite：VIA / Rian 等轻量引擎。**lite 会自动过滤 Via 读不了的语法**（uBO/AG 专属脚本/注入、特殊伪类、正则规则、`$redirect=`/`$rewrite=`/`$stealth=`/`$app=` 等），构建时经 `verify_lite` 自检保证 0 不支持、0 重复
 
 ## 类别
 
