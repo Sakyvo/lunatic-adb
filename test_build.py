@@ -7,7 +7,7 @@ import re
 import tempfile
 import unittest
 
-from build import (CATEGORIES, collect_edition, fetch_url, parse_upstream,
+from build import (CATEGORIES, collect_edition, fetch_url, parse_upstream, verify_artifacts,
                    render_ruleset, run, sanitize_lite, sanitize_lite_dict, verify_lite)
 
 
@@ -200,6 +200,20 @@ class SanitizeLiteTests(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("unsupported(Via脚本): 1", report)
         self.assertIn("dup(base修正): 1", report)
+
+    def test_verify_artifacts_checks_lite_file(self):
+        """verify_artifacts 读取 lite 产物文件并校验；干净则正常，违规则抛异常。"""
+        tmpdir = tempfile.TemporaryDirectory()
+        self.addCleanup(tmpdir.cleanup)
+        good = os.path.join(tmpdir.name, "lunatic-adb-lite.txt")
+        with open(good, "w", encoding="utf-8") as f:
+            f.write("[Adblock Plus 2.0]\n! Title: x\n\n##.ad\n||a.com^\n")
+        # 无异常即通过
+        verify_artifacts(tmpdir.name)
+        with open(good, "w", encoding="utf-8") as f:
+            f.write("[Adblock Plus 2.0]\n##+js(aopr)\n")
+        with self.assertRaises(SystemExit):
+            verify_artifacts(tmpdir.name)
 
     def test_lite_sanitize_returns_all_editions_when_no_edition_filter(self):
         result = sanitize_lite(self.lines, None)

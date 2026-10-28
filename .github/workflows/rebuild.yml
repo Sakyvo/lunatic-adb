@@ -38,19 +38,7 @@ jobs:
           python3 build.py 2>&1 | tee build.log
 
       - name: Verify lite artifact (Via-compat gate)
-        run: |
-          python3 - <<'PY'
-import sys, build
-from pathlib import Path
-for name in ("lunatic-adb-lite.txt",):
-    text = Path(name).read_text(encoding="utf-8")
-    ok, report = build.verify_lite(text)
-    print(f"[{name}]")
-    print(report)
-    if not ok:
-        print("::error::lite 产物不通过 Via 兼容/去重校验，拒绝提交")
-        sys.exit(1)
-PY
+        run: python3 build.py --verify-only
 
       - name: Job summary
         if: always()

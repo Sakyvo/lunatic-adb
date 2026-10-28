@@ -302,11 +302,29 @@ def run(sources_path, out_dir, transport, version_text, stdout, retry_attempts=R
     return 0
 
 
+def verify_artifacts(out_dir):
+    """校验产物目录中的 lite 文件；不通过则打印报告并以 SystemExit(1) 失败。"""
+    path = os.path.join(out_dir, "lunatic-adb-lite.txt")
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    ok, report = verify_lite(text)
+    print(f"[{os.path.basename(path)}]")
+    print(report)
+    if not ok:
+        print("::error::lite 产物不通过 Via 兼容/去重校验，拒绝提交")
+        raise SystemExit(1)
+    return 0
+
+
 def beijing_now():
     return datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
 
 
 def main(argv=None):
+    argv = sys.argv[1:] if argv is None else list(argv)
+    if argv and argv[0] == "--verify-only":
+        root = os.path.dirname(os.path.abspath(__file__))
+        return verify_artifacts(root)
     root = os.path.dirname(os.path.abspath(__file__))
     return run(
         os.path.join(root, "sources.json"),
