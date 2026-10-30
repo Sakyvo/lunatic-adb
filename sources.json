@@ -40,6 +40,11 @@
       "editions": ["origin", "lite"]
     },
     {
+      "url": "https://raw.githubusercontent.com/Sakyvo/Kyvo-Adblock/refs/heads/main/Kyvo-M",
+      "category": "main",
+      "editions": ["origin", "lite"]
+    },
+    {
       "url": "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/jiekouAD.txt",
       "category": "meta",
       "editions": ["origin", "lite"]
@@ -53,6 +58,11 @@
       "url": "https://easylist-downloads.adblockplus.org/easyprivacy.txt",
       "category": "privacy",
       "editions": ["origin", "lite"]
+    },
+    {
+      "url": "https://filters.adtidy.org/extension/ublock/filters/3.txt",
+      "category": "privacy",
+      "editions": ["origin"]
     },
     {
       "url": "https://cdn.jsdelivr.net/gh/runningcheese/RunningCheese-Firefox/Restore/Adblock_Watermark.txt",
@@ -70,7 +80,7 @@
       "editions": ["origin", "lite"]
     },
     {
-      "url": "https://www.i-dont-care-about-cookies.eu/abp/",
+      "url": "https://filters.adtidy.org/extension/ublock/filters/18.txt",
       "category": "cookie",
       "editions": ["origin", "lite"]
     },
