@@ -45,14 +45,12 @@ class ShippedDefaultsTests(unittest.TestCase):
             self.assertTrue(source["editions"])
             self.assertTrue(set(source["editions"]) <= {"origin", "lite"})
 
-        self.assertEqual(len(config["sources"]), 16)
+        self.assertEqual(len(config["sources"]), 15)
 
         self.assertEqual(by_source[BYD_URL]["category"], "main")
         self.assertEqual(set(by_source[BYD_URL]["editions"]), {"origin", "lite"})
 
-        kyvo = by_source[KYVO_M_URL]
-        self.assertEqual(kyvo["category"], "main")
-        self.assertEqual(set(kyvo["editions"]), {"origin", "lite"})
+        self.assertNotIn(KYVO_M_URL, by_source, "Kyvo-M 应按要求移除（双版本）")
 
         adguard_tp = by_source[ADGUARD_TP_URL]
         self.assertEqual(adguard_tp["category"], "privacy")

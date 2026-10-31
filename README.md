@@ -1,6 +1,6 @@
 # lunatic-adb
 
-自用 Adblock 规则聚合：GitHub Actions 每 12 小时拉取 16 个上游规则源，全局精确去重、按类别分段、段内排序后合成两份订阅文件，自动提交回本仓库。lite 与 origin 的区别是目标过滤引擎的**语法兼容性**（部分轻量浏览器无法解析 origin 特供源的复杂语法），不是规则数量——两版共享全部通用源，特供源只进各自版本。
+自用 Adblock 规则聚合：GitHub Actions 每 12 小时拉取 15 个上游规则源，全局精确去重、按类别分段、段内排序后合成两份订阅文件，自动提交回本仓库。lite 与 origin 的区别是目标过滤引擎的**语法兼容性**（部分轻量浏览器无法解析 origin 特供源的复杂语法），不是规则数量——两版共享全部通用源，特供源只进各自版本。
 
 ## 订阅
 
@@ -31,7 +31,6 @@
 - [xinggsf/Adblock-Plus-Rule](https://github.com/xinggsf/Adblock-Plus-Rule) (mv.txt) — main
 - [lingeringsound/adblock_auto](https://github.com/lingeringsound/adblock_auto) — main（特供：origin 版进 adblock_auto.txt，lite 版进 adblock_auto_lite.txt）
 - [BYD广告](https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7c9df87) — main
-- [Sakyvo/Kyvo-Adblock](https://github.com/Sakyvo/Kyvo-Adblock) (Kyvo-M) — main
 - [217heidai/adblockfilters](https://github.com/217heidai/adblockfilters) (jiekouAD) — meta
 - [sbwml/halflife-list](https://github.com/sbwml/halflife-list) (ad-edentw) — meta
 - [EasyPrivacy](https://easylist-downloads.adblockplus.org/easyprivacy.txt) — privacy
