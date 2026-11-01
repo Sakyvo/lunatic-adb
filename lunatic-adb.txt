@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
 ! Title: lunatic-adb
-! Version: 2026-11-01 12:47:07
+! Version: 2026-11-01 15:02:33
 ! Total count: 621743
 ! Description: 自用
 ! Repository: https://github.com/Sakyvo/lunatic-adb
