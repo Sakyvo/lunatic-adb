@@ -4,13 +4,37 @@
 
 ## 订阅
 
-| 版本 | raw | ghfast 镜像 |
-|---|---|---|
-| origin | <https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb.txt> | <https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb.txt> |
-| lite | <https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb-lite.txt> | <https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb-lite.txt> |
+### origin
 
-- origin：uBlock Origin / AdGuard 等支持完整语法的引擎
-- lite：VIA / Rian 等轻量引擎。**lite 会自动过滤 Via 读不了的语法**（uBO/AG 专属脚本/注入、特殊伪类、正则规则、`$redirect=`/`$rewrite=`/`$stealth=`/`$app=` 等），构建时经 `verify_lite` 自检保证 0 不支持、0 重复
+uBlock Origin / AdGuard 等支持完整语法的引擎。
+
+raw：
+
+```
+https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb.txt
+```
+
+ghfast 镜像：
+
+```
+https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb.txt
+```
+
+### lite
+
+VIA / Rian 等轻量引擎。**lite 会自动过滤 Via 读不了的语法**（uBO/AG 专属脚本/注入、特殊伪类、正则规则、`$redirect=`/`$rewrite=`/`$stealth=`/`$app=` 等），构建时经 `verify_lite` 自检保证 0 不支持、0 重复。
+
+raw：
+
+```
+https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb-lite.txt
+```
+
+ghfast 镜像：
+
+```
+https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lunatic-adb-lite.txt
+```
 
 ## 类别
 
@@ -18,7 +42,7 @@
 |---|---|
 | main | 通用拦截规则主体（含 lingeringsound 与 BYD广告） |
 | meta | 接口广告、横幅与弹窗 |
-| privacy | EasyPrivacy 追踪器 |
+| privacy | EasyPrivacy 与 AdGuard Tracking Protection 追踪器 |
 | watermark | 视频水印遮盖 |
 | login | 免登录浏览、"打开 App"提示 |
 | cookie | Cookie 横幅与同意弹窗 |
@@ -26,19 +50,19 @@
 
 ## 上游来源
 
-- [damengzhu/abpmerge](https://github.com/damengzhu/abpmerge) — main
-- [jk278/Ad-J](https://github.com/jk278/Ad-J) — main
-- [xinggsf/Adblock-Plus-Rule](https://github.com/xinggsf/Adblock-Plus-Rule) (mv.txt) — main
-- [lingeringsound/adblock_auto](https://github.com/lingeringsound/adblock_auto) — main（特供：origin 版进 adblock_auto.txt，lite 版进 adblock_auto_lite.txt）
-- [BYD广告](https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7c9df87) — main
-- [217heidai/adblockfilters](https://github.com/217heidai/adblockfilters) (jiekouAD) — meta
-- [sbwml/halflife-list](https://github.com/sbwml/halflife-list) (ad-edentw) — meta
-- [EasyPrivacy](https://easylist-downloads.adblockplus.org/easyprivacy.txt) — privacy
-- [AdGuard Tracking Protection (uBO 变体)](https://filters.adtidy.org/extension/ublock/filters/3.txt) — privacy（仅 origin，体量过大不适轻量引擎）
-- [runningcheese/RunningCheese-Firefox](https://github.com/runningcheese/RunningCheese-Firefox) (Adblock_Watermark) — watermark
-- [DandelionSprout/adfilt](https://github.com/DandelionSprout/adfilt) (BrowseWebsitesWithoutLoggingIn) — login
-- [Noyllopa/NoAppDownload](https://github.com/Noyllopa/NoAppDownload) — login
-- [AdGuard Cookie Notices (uBO 变体)](https://filters.adtidy.org/extension/ublock/filters/18.txt) — cookie（接替已失效的 i-dont-care-about-cookies）
-- [8680/GOODBYEADS](https://github.com/8680/GOODBYEADS) (allow.txt) — whitelist
+- [damengzhu/abpmerge](https://github.com/damengzhu/abpmerge): main
+- [jk278/Ad-J](https://github.com/jk278/Ad-J): main
+- [xinggsf/Adblock-Plus-Rule](https://github.com/xinggsf/Adblock-Plus-Rule) (mv.txt): main
+- [lingeringsound/adblock_auto](https://github.com/lingeringsound/adblock_auto): main（特供：origin 版进 adblock_auto.txt，lite 版进 adblock_auto_lite.txt）
+- [BYD广告](https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7c9df87): main
+- [217heidai/adblockfilters](https://github.com/217heidai/adblockfilters) (jiekouAD): meta
+- [sbwml/halflife-list](https://github.com/sbwml/halflife-list) (ad-edentw): meta
+- [EasyPrivacy](https://easylist-downloads.adblockplus.org/easyprivacy.txt): privacy
+- [AdGuard Tracking Protection (uBO 变体)](https://filters.adtidy.org/extension/ublock/filters/3.txt): privacy（仅 origin，体量过大不适轻量引擎）
+- [runningcheese/RunningCheese-Firefox](https://github.com/runningcheese/RunningCheese-Firefox) (Adblock_Watermark): watermark
+- [DandelionSprout/adfilt](https://github.com/DandelionSprout/adfilt) (BrowseWebsitesWithoutLoggingIn): login
+- [Noyllopa/NoAppDownload](https://github.com/Noyllopa/NoAppDownload): login
+- [AdGuard Cookie Notices (uBO 变体)](https://filters.adtidy.org/extension/ublock/filters/18.txt): cookie（接替已失效的 i-dont-care-about-cookies）
+- [8680/GOODBYEADS](https://github.com/8680/GOODBYEADS) (allow.txt): whitelist
 
 感谢以上规则维护者。清单以 [`sources.json`](sources.json) 为准，增删上游只改该文件。

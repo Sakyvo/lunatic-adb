@@ -88,6 +88,7 @@ class RenderRulesetTests(unittest.TestCase):
             "! Total count: 3\n"
             "! Description: 自用\n"
             "! Repository: https://github.com/Sakyvo/lunatic-adb\n"
+            "! Homepage: https://github.com/Sakyvo/lunatic-adb\n"
             "! Expires: 12 hours\n"
             "\n"
             "! >>>>>> main · 2 <<<<<<\n"
