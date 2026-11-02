@@ -25,6 +25,11 @@
       "editions": ["origin", "lite"]
     },
     {
+      "url": "https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/refs/heads/master/rule.txt",
+      "category": "main",
+      "editions": ["origin", "lite"]
+    },
+    {
       "url": "https://raw.githubusercontent.com/lingeringsound/adblock_auto/main/Rules/adblock_auto.txt",
       "category": "main",
       "editions": ["origin"]
@@ -37,11 +42,6 @@
     {
       "url": "https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7c9df87/raw/976e686edb2e6d6ab9f17a381f07f625ce1141db/BYD%25E5%25B9%25BF%25E5%2591%258A.txt",
       "category": "main",
-      "editions": ["origin", "lite"]
-    },
-    {
-      "url": "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/jiekouAD.txt",
-      "category": "meta",
       "editions": ["origin", "lite"]
     },
     {
@@ -76,6 +76,11 @@
     },
     {
       "url": "https://filters.adtidy.org/extension/ublock/filters/18.txt",
+      "category": "cookie",
+      "editions": ["origin", "lite"]
+    },
+    {
+      "url": "https://filters.adtidy.org/extension/ublock/filters/23.txt",
       "category": "cookie",
       "editions": ["origin", "lite"]
     },

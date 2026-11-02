@@ -18,6 +18,9 @@ BYD_URL = ("https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7
 KYVO_M_URL = "https://raw.githubusercontent.com/Sakyvo/Kyvo-Adblock/refs/heads/main/Kyvo-M"
 ADGUARD_TP_URL = "https://filters.adtidy.org/extension/ublock/filters/3.txt"
 ADGUARD_COOKIE_URL = "https://filters.adtidy.org/extension/ublock/filters/18.txt"
+ADGUARD_ANNOYANCES_URL = "https://filters.adtidy.org/extension/ublock/filters/23.txt"
+XINGGSF_RULE_URL = "https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/refs/heads/master/rule.txt"
+DEAD_JIEKOU_URL = "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/jiekouAD.txt"
 DEAD_IDCAC_URL = "https://www.i-dont-care-about-cookies.eu/abp/"
 
 
@@ -45,7 +48,7 @@ class ShippedDefaultsTests(unittest.TestCase):
             self.assertTrue(source["editions"])
             self.assertTrue(set(source["editions"]) <= {"origin", "lite"})
 
-        self.assertEqual(len(config["sources"]), 15)
+        self.assertEqual(len(config["sources"]), 16)
 
         self.assertEqual(by_source[BYD_URL]["category"], "main")
         self.assertEqual(set(by_source[BYD_URL]["editions"]), {"origin", "lite"})
@@ -60,6 +63,15 @@ class ShippedDefaultsTests(unittest.TestCase):
         self.assertEqual(adguard_cookie["category"], "cookie")
         self.assertEqual(set(adguard_cookie["editions"]), {"origin", "lite"})
 
+        annoyances = by_source[ADGUARD_ANNOYANCES_URL]
+        self.assertEqual(annoyances["category"], "cookie")
+        self.assertEqual(set(annoyances["editions"]), {"origin", "lite"})
+
+        xinggsf_rule = by_source[XINGGSF_RULE_URL]
+        self.assertEqual(xinggsf_rule["category"], "main")
+        self.assertEqual(set(xinggsf_rule["editions"]), {"origin", "lite"})
+
+        self.assertNotIn(DEAD_JIEKOU_URL, by_source, "失效的 jiekouAD 应已移除（内容已 100% 在 abpmerge 内）")
         self.assertNotIn(DEAD_IDCAC_URL, by_source, "死源 idcac 应已移除")
 
         for suffix, edition in (("adblock_auto.txt", "origin"), ("adblock_auto_lite.txt", "lite")):

@@ -1,6 +1,6 @@
 # lunatic-adb
 
-自用 Adblock 规则聚合：GitHub Actions 每 12 小时拉取 15 个上游规则源，全局精确去重、按类别分段、段内排序后合成两份订阅文件，自动提交回本仓库。lite 与 origin 的区别是目标过滤引擎的**语法兼容性**（部分轻量浏览器无法解析 origin 特供源的复杂语法），不是规则数量——两版共享全部通用源，特供源只进各自版本。
+自用 Adblock 规则聚合：GitHub Actions 每 12 小时拉取 16 个上游规则源，全局精确去重、按类别分段、段内排序后合成两份订阅文件，自动提交回本仓库。lite 与 origin 的区别是目标过滤引擎的**语法兼容性**（部分轻量浏览器无法解析 origin 特供源的复杂语法），不是规则数量——两版共享全部通用源，特供源只进各自版本。
 
 ## 订阅
 
@@ -40,12 +40,12 @@ https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lun
 
 | 段落 | 内容 |
 |---|---|
-| main | 通用拦截规则主体（含 lingeringsound 与 BYD广告） |
+| main | 通用拦截规则主体（含 lingeringsound、BYD广告、乘风、abpmerge 合并的 EasyList China/CJX 等） |
 | meta | 接口广告、横幅与弹窗 |
 | privacy | EasyPrivacy 与 AdGuard Tracking Protection 追踪器 |
 | watermark | 视频水印遮盖 |
 | login | 免登录浏览、"打开 App"提示 |
-| cookie | Cookie 横幅与同意弹窗 |
+| cookie | Cookie 横幅、页面内弹窗、移动 App 横幅等各类干扰元素 |
 | whitelist | `@@` 放行规则，固定最末段 |
 
 ## 上游来源
@@ -53,9 +53,9 @@ https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lun
 - [damengzhu/abpmerge](https://github.com/damengzhu/abpmerge): main
 - [jk278/Ad-J](https://github.com/jk278/Ad-J): main
 - [xinggsf/Adblock-Plus-Rule](https://github.com/xinggsf/Adblock-Plus-Rule) (mv.txt): main
+- [xinggsf/Adblock-Plus-Rule](https://github.com/xinggsf/Adblock-Plus-Rule) (rule.txt): main
 - [lingeringsound/adblock_auto](https://github.com/lingeringsound/adblock_auto): main（特供：origin 版进 adblock_auto.txt，lite 版进 adblock_auto_lite.txt）
 - [BYD广告](https://gist.githubusercontent.com/Sakyvo/a385daf67f65e09f7f7084baa7c9df87): main
-- [217heidai/adblockfilters](https://github.com/217heidai/adblockfilters) (jiekouAD): meta
 - [sbwml/halflife-list](https://github.com/sbwml/halflife-list) (ad-edentw): meta
 - [EasyPrivacy](https://easylist-downloads.adblockplus.org/easyprivacy.txt): privacy
 - [AdGuard Tracking Protection (uBO 变体)](https://filters.adtidy.org/extension/ublock/filters/3.txt): privacy（仅 origin，体量过大不适轻量引擎）
@@ -63,6 +63,7 @@ https://ghfast.top/https://raw.githubusercontent.com/Sakyvo/lunatic-adb/main/lun
 - [DandelionSprout/adfilt](https://github.com/DandelionSprout/adfilt) (BrowseWebsitesWithoutLoggingIn): login
 - [Noyllopa/NoAppDownload](https://github.com/Noyllopa/NoAppDownload): login
 - [AdGuard Cookie Notices (uBO 变体)](https://filters.adtidy.org/extension/ublock/filters/18.txt): cookie（接替已失效的 i-dont-care-about-cookies）
+- [AdGuard Annoyances (uBO 变体)](https://filters.adtidy.org/extension/ublock/filters/23.txt): cookie（弹窗 / 移动 App 横幅 / 小工具 / 其他干扰）
 - [8680/GOODBYEADS](https://github.com/8680/GOODBYEADS) (allow.txt): whitelist
 
 感谢以上规则维护者。清单以 [`sources.json`](sources.json) 为准，增删上游只改该文件。
